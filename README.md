@@ -2,10 +2,10 @@
 
 On this repository you gonna know how to conf a evil twin wifi network:
 
-first you have to put a monitor mode interface for example wlan0 --> wlan0mon:
+first you have to put a monitor mode interface for example wlan0 --> sudo airmon-ng start wlan0:
 
 
-######Create de fake AP########
+# Create de fake AP
 
 hacker@lol:/var/www$ sudo airbase-ng -e "Wificlon" -c 6 wlan0mon
 [sudo] contraseña para mr-unknow: 
