@@ -1,6 +1,7 @@
 
 # Requirements
 ##############################################################
+
 you need install all this packages on youre linux:
 
 1. aircrack-ng  suite
