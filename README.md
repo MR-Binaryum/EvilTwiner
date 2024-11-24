@@ -1,4 +1,4 @@
-##############################################################
+
 # Requirements
 ##############################################################
 you need install all this packages on youre linux:
@@ -10,6 +10,7 @@ you need install all this packages on youre linux:
 5. two wireless card for monitor mode:
 
  5.1: For create the fake AP (DHCP)
+
  5.2: To give internet connection to the victim clients (NAT/DNS)
 
 Examples:   ALFAAWUSACH036 wireless external card
