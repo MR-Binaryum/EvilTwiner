@@ -145,7 +145,8 @@ done
 Install(){
 sudo apt install aircrack-ng hostapd php dnsmasq iptables openssl apache2 net-tools dsniff -y &&
 cd /home &&
-sudo mkdir fap
+sudo mkdir fap &&
+sudo systemctl unmask hostapd
 }
 
 ####AP interface conf####
