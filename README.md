@@ -73,7 +73,7 @@ requirements:
 
 And finally: 
 
-hacker@lol:/var/www/html$ sudo php -S 10.0.0.1:7000 
+sudo php -S 10.0.0.1:7000 = this command execute on /var/www/html
 
 [Fri Dec 6 05:39:12 2024] PHP 8.2.24 Development Server (http://10.0.0.1:7000) started
 
