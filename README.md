@@ -19,10 +19,10 @@ When you conf the FAP there is a line that writes a fake bssid to dont take your
 
 # In what order start?
 
-Step one: install all requirements with (option 1)
-Step two: Clean all current confs (option 6)
-Step Three: made the conf interface (option 2)
-Step four: Do the conf of DHCP/DNS and Fake AP (option 3 and 4)
-Step five: Enable traffic rules (option 5)
-Step six: Conf apache2 (option 7)
-Step seven (optional): start/stop captive portal (option 8)
+1. Step one: install all requirements with (option 1)
+2. Step two: Clean all current confs (option 6)
+3. Step Three: made the conf interface (option 2)
+4. Step four: Do the conf of DHCP/DNS and Fake AP (option 3 and 4)
+5. Step five: Enable traffic rules (option 5)
+6. Step six: Conf apache2 (option 7)
+7. Step seven (optional): start/stop captive portal (option 8)
