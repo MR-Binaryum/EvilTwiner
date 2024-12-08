@@ -8,9 +8,7 @@ The tool has two modes of attack:
 2. And the captive portal to steal wifi passwords (this last its a equivalent from a phishing but for wifi and clients can't use internet without complete the form).
    Apart of that has an essential conf that when the users send a SSID and password validates the data in real time with a connection so if he don't enter the right data gonna restart the form.
 
-######################
 # NOTES
-######################
 
 When you conf the FAP there is a line that writes a fake bssid to dont take youre MAC address...
 
@@ -18,9 +16,8 @@ When you conf the FAP there is a line that writes a fake bssid to dont take your
 2. later start hostapd with the config you make.
 3. Uncomment the same line again and reload the execution of the hostapd file.
 
-######################
-In what order start?
-######################
+
+# In what order start?
 
 Step one: install all requirements with (option 1)
 Step two: Clean all current confs (option 6)
