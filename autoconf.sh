@@ -290,7 +290,8 @@ sudo cp 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 echo "Cleaning files on /var/www/html and copying EvilTwin webpage on /var/www/html..."
 
 sudo rm -rf /var/www/html/* &&
-sudo cp -r css/ php/ images/ form.html /var/www/html
+sudo cp -r css/ php/ images/ form.html /var/www/html &&
+sudo mv /var/www/html/form.html /var/www/html/index.html
 
 
 echo "Restarting services..."
