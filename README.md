@@ -34,7 +34,7 @@ When you conf the FAP there is a line that writes a fake bssid to dont take your
 3. net-tools
 4. iptables
 5. hostapd
-6. dsniff utils
+6. apache2
 7. a wireless card for monitor mode
 8. a wireless card with internet connection:
 
